@@ -20,19 +20,21 @@ router.get('/', function(req, res, next) {
 
 
 router.post('/form', upload.single('image'), (req, res) => {
-  
-  filename = "";
-  content =  ""
+  debugger
+  var filename = "";
+  var content =  "";
   
 
   function checkFile(){
     debugger
-    if (typeof req.files == 'undefined' ){
+    if (req.files == 'undefined' ){
       filename = "NoAttachment.txt"
       content = "Hello"
+      debugger
     } else {
       filename = req.file.originalname
       content = req.file
+      debugger
     }
   }
 

@@ -3,6 +3,11 @@
 
 $(()=> {
 
+  if ($(window).width()> 450){
+    setTimeout(()=>{
+      document.getElementById("menu").style.top = "0px";
+    }, 3500)
+  }
 
   $(".hamburger").on("click", function(){
     $(this).toggleClass("is-active");
@@ -21,7 +26,7 @@ $(()=> {
   })
 
   $("input[type=text], input[type=email]").bind("keyup focusin mouseenter", function(){
-    if ($(window).width()<550) {
+    if ($(window).width()< 450) {
       $(this).siblings(".floating-label").css({"color": "#cc7e00" })
       $(this).css({"background-color": "#cc7e00", "color": "#00264d" })
     } else {
@@ -41,7 +46,7 @@ $(()=> {
 
   $("input[type=text], input[type=email]").on("keyup click", function(e){
     if (e.key === "Tab"){
-      if ($(window).width()< 550) {
+      if ($(window).width()< 450) {
         $(this).siblings(".floating-label").animate({"bottom": "95px","right": "5px", "font-weight": "900", "color": "#cc7e00"}, 250)
         $(this).css({"margin": "30px 0px 30px 0px"})
       } else {
@@ -52,7 +57,7 @@ $(()=> {
         }     
       }
     } else if (e.type === "click"){
-        if ($(window).width() < 550) {
+        if ($(window).width() < 450) {
           $(this).siblings(".floating-label").animate({"bottom": "95px","right": "5px", "font-weight": "900", "color": "#cc7e00"}, 250)
           $(this).css({"margin": "30px 0px 30px 0px"})
         } else {
@@ -66,7 +71,7 @@ $(()=> {
   })
     
   $("#submit").on("click focusout", function(e){
-    if (e.type === "click" && ($("#name, #place, #email, #size").val().length > 0)){
+    if (e.type === "click" && ($("#name #place #email #size").val().length > 0)){
       $(this).css({"background-position": "right bottom"}, 3000)
       $(this).empty();
       $(this).html("<img src=\"/images/paper-plane.svg\"> <span> Sent Succesfully!</span>")
@@ -93,14 +98,14 @@ $(()=> {
       if ($(this).is(":focus")) {
         $(this).css({"background-color": "#cc7e00"})
       } else {
-          if (($(this).val().length === 0) && ($(window).width() < 550)) {
+          if (($(this).val().length === 0) && ($(window).width() < 450)) {
             $(this).siblings(".floating-label").animate({"bottom": "30px","right": "5px", "font-weight": "300", "color": "#cc7e00"}, 250)
             $(this).css({"margin": "0px 0px 0px 0px"})
-          } else if (($(this).val().length === 0) && ($(window).width() > 550)) {
+          } else if (($(this).val().length === 0) && ($(window).width() > 450)) {
             $(this).siblings(".floating-label").animate({"left": "0px", "font-weight": "0"}, 200)
             $(this).css({"background-color": "#cc7e00", "color": "#00264d"});
             $(this).siblings(".floating-label").css({"color": "#00264d"})
-          } else if (($(this).val().length > 0) && ($(window).width() < 550)){
+          } else if (($(this).val().length > 0) && ($(window).width() < 450)){
             $(this).siblings(".floating-label").animate({"bottom": "65px","right": "5px", "font-weight": "900", "color": "#cc7e00"}, 250)
             $(this).css({"margin": "20px 0px 0 0px"})
           }
@@ -114,8 +119,8 @@ $(()=> {
   $(".floating-label").bind("mouseenter focusin click", function(e){
     
     if (e.type === "click"){
-      if (($(window).width() > 550)) {
-        
+      if (($(window).width() > 450)) {
+        debugger
         if (e.currentTarget.firstChild.data === "Size (cm x cm) *"){
           $(this).animate({"left": `${$(this).siblings("input").width() - 115}px`, "font-weight": "900"}, 200)
           $(this).siblings("input").focus()
@@ -123,6 +128,10 @@ $(()=> {
             $(this).animate({"left": `${$(this).siblings("input").width() - 60}px`, "font-weight": "900"}, 200)
             $(this).siblings("input").focus()
         }
+      } else {     
+        debugger  
+          $(this).animate({"bottom": "95px","right": "5px", "font-weight": "900", "color": "#cc7e00"}, 250)
+          $(this).siblings("input").css({"margin": "30px 0px 30px 0px"})
       }
       $(this).siblings("input").focus()
     }
