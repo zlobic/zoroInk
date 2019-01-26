@@ -565,6 +565,7 @@ input:focus{
 
  
  #wrapper:after {
+   overflow: hidden;
     background-color:#00264d ;
     font-family: "Light", sans-serif;
     content: attr(data-text);
@@ -593,6 +594,7 @@ input:focus{
   }
 
   #wrapper:before {
+    overflow: hidden;
     text-decoration: underline;
     content: 'Browse';
     position: absolute;
