@@ -27,7 +27,7 @@ router.post('/form', upload.single('image'), (req, res) => {
 
   function checkFile(){
     
-    if (typeof req.files == 'undefined' ){
+    if (typeof req.file == 'undefined' ){
       filename = "NoAttachment.txt"
       content = "Hello"
       
@@ -57,14 +57,15 @@ router.post('/form', upload.single('image'), (req, res) => {
  
 
   
-
+debugger
 
   let mailOptions = {
     from: "zoroinkappointm@gmail.com", // sender address
     to: "bureauzlobi@gmail.com", // list of receivers
     subject: 'Appointment: ZoroInk Website', 
     attachments: {filename: filename,
-    content: content},
+    content: content,
+    pathname:  `../uploads/${filename}`},
     html: emailZoro(text).html// Subject line
   };  
 
