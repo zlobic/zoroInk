@@ -70,18 +70,17 @@ $(()=> {
     }
   })
     
-  $("#submit").on("click focusout", function(e){
-    if (e.type === "click" && ($("#name #place #email #size").val().length > 0)){
-      $(this).css({"background-position": "right bottom"}, 3000)
-      $(this).empty();
-      $(this).html("<img src=\"/images/paper-plane.svg\"> <span> Sent Succesfully!</span>")
-      $(this).children("img").css({"position": "relative", "right": "1%" })
-      $(this).children("span").css({"color": "#00264d"})
-      $(this).children("img").height("40px").width("70px")
-      $(this).siblings("input").val() = ""
-    }
-  })
+  $("form").on("submit", function(e){
 
+        $("#submit").css({"background-position": "right bottom"}, 3000)
+        $("#submit").empty();
+        $("#submit").html("<img src=\"/images/paper-plane.svg\"> <span> Sent Succesfully!</span>")
+        $("#submit").children("img").css({"position": "relative", "right": "1%" })
+        $("#submit").children("span").css({"color": "#00264d"})
+        $("#submit").children("img").height("40px").width("70px")
+        $("#submit").siblings("input").val() = ""
+  })
+  
     
   $("input[type=text], input[type=email]").on("keydown", function(){
     if (e.key === "Tab"){

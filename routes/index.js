@@ -20,21 +20,21 @@ router.get('/', function(req, res, next) {
 
 
 router.post('/form', upload.single('image'), (req, res) => {
-  debugger
+  
   var filename = "";
   var content =  "";
   
 
   function checkFile(){
-    debugger
-    if (req.files == 'undefined' ){
+    
+    if (typeof req.files == 'undefined' ){
       filename = "NoAttachment.txt"
       content = "Hello"
-      debugger
+      
     } else {
       filename = req.file.originalname
       content = req.file
-      debugger
+      
     }
   }
 
@@ -58,7 +58,7 @@ router.post('/form', upload.single('image'), (req, res) => {
 
   
 
-debugger
+
   let mailOptions = {
     from: "zoroinkappointm@gmail.com", // sender address
     to: "bureauzlobi@gmail.com", // list of receivers
@@ -68,14 +68,14 @@ debugger
     html: emailZoro(text).html// Subject line
   };  
 
-  debugger
+  
 
   var transporter = nodemailer.createTransport(smtpConfig);
     transporter.sendMail(mailOptions, (err, res) => {
-      debugger
+      
     err ? console.log("There was an error: " + err) : console.log("The message was sent succefully")
   })
-  debugger
+  
   setTimeout(()=>{
     res.render("indexForm")
 }, 2000)
