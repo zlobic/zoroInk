@@ -71,7 +71,20 @@ $(()=> {
   })
     
   $("form").on("submit", function(e){
-
+    const captcha = $("#g-captcha-response").val()
+    fetch('/', {
+      method: "POST",
+      headers:{
+        "Accept": 'application/json, text/plain, */*',
+        "Content-type": "application/json"     
+      },
+      body: JSON.stringify({captcha: captcha})
+    })
+    .then((res)=> res.json())
+    .then((data)=> {
+      console.log(data)
+      
+    })
         $("#submit").css({"background-position": "right bottom"}, 3000)
         $("#submit").empty();
         $("#submit").html("<img src=\"/images/paper-plane.svg\"> <span> Sent Succesfully!</span>")
@@ -119,7 +132,7 @@ $(()=> {
     
     if (e.type === "click"){
       if (($(window).width() > 450)) {
-        debugger
+        
         if (e.currentTarget.firstChild.data === "Size (cm x cm) *"){
           $(this).animate({"left": `${$(this).siblings("input").width() - 115}px`, "font-weight": "900"}, 200)
           $(this).siblings("input").focus()
@@ -128,7 +141,7 @@ $(()=> {
             $(this).siblings("input").focus()
         }
       } else {     
-        debugger  
+          
           $(this).animate({"bottom": "95px","right": "5px", "font-weight": "900", "color": "#cc7e00"}, 250)
           $(this).siblings("input").css({"margin": "30px 0px 30px 0px"})
       }

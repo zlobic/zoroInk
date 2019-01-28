@@ -25,9 +25,6 @@ const emailZoro = function(text) {
         Place of Tattoo: ${text.place}
         <br>
         Description of Tattoo: ${text.description}
-        
-        
-        
         </mj-text>
       </mj-column>
     </mj-section>
