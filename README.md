@@ -1,5 +1,4 @@
 # Zoro Ink
----
 _Zoro Ink is a portfolio website for Amsterdam based tattoo artist Amalija Zorotovic_
 
 ![Imgur](https://i.imgur.com/aplPOen.png)
