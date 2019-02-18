@@ -6,7 +6,6 @@ _Zoro Ink is a portfolio website for Amsterdam based tattoo artist Amalija Zorot
 
 Visiti the website at: www.zoroink.com
 ## Usage
-___
 
 A couple of points to consider when launching this website: 
 
@@ -14,7 +13,6 @@ A couple of points to consider when launching this website:
 - Npm install :wink:
 
 ## Technologies
----
 ZoroInk is build using **Node**, **Express**, **Handlebars**, **Sass** and **JQuery**. 
 
 
